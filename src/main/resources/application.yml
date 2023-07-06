@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: url-screenshot
+  profiles:
+    active: "local"
+---
+spring:
+  config:
+    activate:
+      on-profile: local
+  rabbitmq:
+    port: 5671
+    username: guest
+    password: guest
+    template:
+      exchange: url_exchange
+      default-receive-queue: url_json
+      routing:
+        json:
+          key: url_routing
+server:
+  port: 9090
