@@ -14,9 +14,7 @@ spring:
     password: guest
     template:
       exchange: url_exchange
-      default-receive-queue: url_json
-      routing:
-        json:
-          key: url_routing
+      default-receive-queue: url_queue
+      routing-key: url_routing_key
 server:
   port: 9090
