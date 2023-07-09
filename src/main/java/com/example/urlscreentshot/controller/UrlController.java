@@ -19,7 +19,7 @@ public class UrlController {
 
     private final IUrlDispatcher urlDispatcher;
 
-    @PostMapping("/register")
+    @PostMapping()
     public ResponseEntity<UrlRs> register(@RequestBody UrlRq urlRq) {
         return ResponseEntity.ok(urlDispatcher.dispatch(urlRq));
     }
