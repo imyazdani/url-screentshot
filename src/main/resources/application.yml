@@ -16,14 +16,5 @@ spring:
       exchange: url_exchange
       default-receive-queue: url_queue
       routing-key: url_routing_key
-  datasource:
-    url: jdbc:postgresql://localhost:5432/url_screenshot
-    username: postgres
-    password: postgres
-  jpa:
-    hibernate:
-      ddl-auto: update
-    properties:
-      dialect: org.hibernate.dialect.PostgreSQLDialect
 server:
   port: 9090
