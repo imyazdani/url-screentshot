@@ -2,7 +2,7 @@ package com.example.urlscreentshot.controller;
 
 import com.example.urlscreentshot.model.request.UrlRq;
 import com.example.urlscreentshot.model.response.UrlRs;
-import com.example.urlscreentshot.service.UrlDispatcher;
+import com.example.urlscreentshot.service.IUrlDispatcher;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/api/url")
 public class UrlController {
 
-    private final UrlDispatcher urlDispatcher;
+    private final IUrlDispatcher urlDispatcher;
 
     @PostMapping("/register")
     public ResponseEntity<UrlRs> register(@RequestBody UrlRq urlRq) {
