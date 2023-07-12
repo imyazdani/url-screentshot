@@ -29,9 +29,13 @@ public class UrlConsumer {
         try {
             screenshot.takeScreenshot(urlDto);
             urlDto.setStatus(UrlStatus.DONE);
+            log.info("Url is taken screenshot: {}", urlDto);
+
 
         } catch (IOException e) {
             urlDto.setStatus(UrlStatus.FAILED);
+            log.info("Screenshot of the url has failed: {}", urlDto);
+
             log.error("Screenshot is failed: ", e);
         }
 
