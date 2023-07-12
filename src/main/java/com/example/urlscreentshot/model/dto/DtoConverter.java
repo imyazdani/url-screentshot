@@ -4,18 +4,24 @@ import com.example.urlscreentshot.model.enums.UrlStatus;
 import com.example.urlscreentshot.model.response.UrlRs;
 import com.example.urlscreentshot.util.UrlUtil;
 import lombok.Data;
+import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
+import org.springframework.stereotype.Component;
 
 @Data
+@Component
+@RequiredArgsConstructor
 public class DtoConverter {
 
-    private static ModelMapper modelMapper = new ModelMapper();
+    private final UrlUtil urlUtil;
 
-    public static UrlDto createUrl(String url){
-        return new UrlDto(UrlUtil.convertToSha256(url), url, UrlStatus.PENDING, UrlUtil.getCurrentTimestamp());
+    private ModelMapper modelMapper = new ModelMapper();
+
+    public UrlDto createUrl(String url){
+        return new UrlDto(urlUtil.convertToSha256(url), url, UrlStatus.PENDING, urlUtil.getCurrentTimestamp());
     }
 
-    public static UrlRs toUrlResponse(UrlDto urlDto){
+    public UrlRs toUrlResponse(UrlDto urlDto){
         return modelMapper.map(urlDto, UrlRs.class);
     }
 }

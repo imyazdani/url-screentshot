@@ -16,12 +16,13 @@ import org.springframework.stereotype.Service;
 public class UrlDispatcherImpl implements IUrlDispatcher {
 
     private final UrlProducer urlProducer;
+    private final DtoConverter dtoConverter;
 
     @Override
     public UrlRs dispatch(UrlRq urlRq) {
-        UrlDto urlDto = DtoConverter.createUrl(urlRq.getUrl());
+        UrlDto urlDto = dtoConverter.createUrl(urlRq.getUrl());
         urlProducer.sendMessage(urlDto);
 
-        return DtoConverter.toUrlResponse(urlDto);
+        return dtoConverter.toUrlResponse(urlDto);
     }
 }

@@ -18,3 +18,5 @@ spring:
       routing-key: url_routing_key
 server:
   port: 9090
+app:
+  storage-path: storage-shots/
