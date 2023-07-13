@@ -31,7 +31,6 @@ public class UrlConsumer {
             urlDto.setStatus(UrlStatus.DONE);
             log.info("Url is taken screenshot: {}", urlDto);
 
-
         } catch (IOException e) {
             urlDto.setStatus(UrlStatus.FAILED);
             log.info("Screenshot of the url has failed: {}", urlDto);

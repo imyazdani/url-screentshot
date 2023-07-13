@@ -6,10 +6,7 @@ import com.example.urlscreentshot.service.IUrlDispatcher;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequiredArgsConstructor
@@ -22,5 +19,10 @@ public class UrlController {
     @PostMapping()
     public ResponseEntity<UrlRs> register(@RequestBody UrlRq urlRq) {
         return ResponseEntity.ok(urlDispatcher.dispatch(urlRq));
+    }
+
+    @GetMapping("/{urlId}")
+    public ResponseEntity<?> getImage(@PathVariable String urlId) {
+        return urlDispatcher.getImage(urlId);
     }
 }

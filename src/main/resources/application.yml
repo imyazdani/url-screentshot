@@ -18,5 +18,7 @@ spring:
       routing-key: url_routing_key
 server:
   port: 9090
+  error:
+    include-message:app: always
 app:
   storage-path: storage-shots/
